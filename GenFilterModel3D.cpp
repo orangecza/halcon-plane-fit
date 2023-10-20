@@ -24,7 +24,7 @@ void
 GenFilterModel3D (HObject ho_Image, HTuple hv_ROICenterRow,
                   HTuple hv_ROICenterColumn, HTuple hv_ROIHalfLength,
                   HTuple hv_ROIHalfWidth, HTuple hv_Phi, HTuple hv_FilterLower,
-                  HTuple hv_FilterUpper, HTuple hv_StripThreshold,
+                  HTuple hv_FilterUpper, HTuple hv_StripThresholdLower, HTuple hv_StripThresholdUpper,
                   HTuple *hv_ObjectModel3D)
 {
   // Local iconic variables
@@ -59,8 +59,8 @@ GenFilterModel3D (HObject ho_Image, HTuple hv_ROICenterRow,
   // Strip outliers
   hv_ZSortedIndex = hv_Z.TupleSortIndex ();
   hv_InlierIndex = HTuple::TupleGenSequence (
-      ((hv_ZSortedIndex.TupleLength ()) * hv_StripThreshold).TupleInt (),
-      (((hv_ZSortedIndex.TupleLength ()) * (1 - hv_StripThreshold))
+      ((hv_ZSortedIndex.TupleLength ()) * hv_StripThresholdLower).TupleInt (),
+      (((hv_ZSortedIndex.TupleLength ()) * (1 - hv_StripThresholdUpper))
            .TupleInt ())
           - 1,
       1);

@@ -38,7 +38,7 @@ roi::check_exception ()
 }
 
 roi_filter_para::roi_filter_para (std::pair<float, float> val_filter,
-                                  float strip_threshold)
+                                  std::pair<float, float> strip_threshold)
     : val_filter (val_filter), strip_threshold (strip_threshold)
 {
   check_exception ();
@@ -49,7 +49,8 @@ roi_filter_para::check ()
 {
   return 0 <= val_filter.first && val_filter.first < 0.5
          && 0 <= val_filter.second && val_filter.second < 0.5
-         && 0 <= strip_threshold < 0.5;
+         && 0 <= strip_threshold.first && strip_threshold.first < 0.5
+         && 0 <= strip_threshold.second && strip_threshold.second < 0.5;
 }
 void
 roi_filter_para::check_exception ()
@@ -70,7 +71,8 @@ roi_filter_merge (HalconCpp::HObject &img, std::vector<roi> roi_list,
     {
       GenFilterModel3D (img, i.center.first, i.center.second, i.half_len.first,
                         i.half_len.second, i.phi, para.val_filter.first,
-                        para.val_filter.second, para.strip_threshold, &model);
+                        para.val_filter.second, para.strip_threshold.first,
+                        para.strip_threshold.second, &model);
       merge.TupleConcat (model);
     }
   HalconCpp::UnionObjectModel3d (merge, "points_surface", &model);

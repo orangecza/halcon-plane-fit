@@ -45,13 +45,13 @@ action ()
           ("imgdata-exposure-diff-100/out"
            + hv_i)
               + ".tiff");
-      GenFilterModel3D (ho_img, 615, 685, 15, 15, 1.5708, 0.01, 2000, 0.1,
+      GenFilterModel3D (ho_img, 615, 685, 15, 15, 1.5708, 0.01, 2000, 0.1, 0.1,
                         &hv_ObjectModel3D);
-      GenFilterModel3D (ho_img, 715, 695, 15, 15, 1.5708, 0.01, 2000, 0.1,
+      GenFilterModel3D (ho_img, 715, 695, 15, 15, 1.5708, 0.01, 2000, 0.1, 0.1,
                         &hv_ObjectModel3D1);
-      GenFilterModel3D (ho_img, 615, 730, 15, 15, 1.5708, 0.01, 2000, 0.1,
+      GenFilterModel3D (ho_img, 615, 730, 15, 15, 1.5708, 0.01, 2000, 0.1, 0.1,
                         &hv_ObjectModel3D2);
-      GenFilterModel3D (ho_img, 715, 745, 15, 15, 1.5708, 0.01, 2000, 0.1,
+      GenFilterModel3D (ho_img, 715, 745, 15, 15, 1.5708, 0.01, 2000, 0.1, 0.1,
                         &hv_ObjectModel3D3);
       UnionObjectModel3d (((hv_ObjectModel3D.TupleConcat (hv_ObjectModel3D1))
                                .TupleConcat (hv_ObjectModel3D2))
@@ -62,7 +62,7 @@ action ()
       GetObjectModel3dParams (hv_UnionObjectModel3D, "point_coord_z", &hv_Z);
       FilterRefit (hv_UnionObjectModel3D, 0., 0.15, &hv_Plane);
 
-      GenFilterModel3D (ho_img, 530, 715, 15, 15, 1.5708, 0.01, 2000, 0.1,
+      GenFilterModel3D (ho_img, 530, 715, 15, 15, 1.5708, 0.01, 2000, 0.1, 0.1,
                         &hv_ObjectModel3D4);
       // GenFilterModel3D (img, 315, 1380, 100, 100, 1.5708, 0.01, 2000, 0.25,
       // ObjectModel3D4) get_object_model_3d_params (Plane,

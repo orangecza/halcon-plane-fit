@@ -44,10 +44,11 @@ struct roi
 struct roi_filter_para
 {
   std::pair<float, float> val_filter;
-  float strip_threshold;
+  std::pair<float, float> strip_threshold;
 
   roi_filter_para () = delete;
-  roi_filter_para (std::pair<float, float> val_filter, float strip_threshold);
+  roi_filter_para (std::pair<float, float> val_filter,
+                   std::pair<float, float> strip_threshold);
 
   bool check ();
   void check_exception ();

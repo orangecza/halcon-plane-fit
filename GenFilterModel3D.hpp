@@ -21,6 +21,6 @@ extern void GenFilterModel3D (
     HalconCpp::HTuple hv_ROICenterColumn, HalconCpp::HTuple hv_ROIHalfLength,
     HalconCpp::HTuple hv_ROIHalfWidth, HalconCpp::HTuple hv_Phi,
     HalconCpp::HTuple hv_FilterLower, HalconCpp::HTuple hv_FilterUpper,
-    HalconCpp::HTuple hv_StripThreshold, HalconCpp::HTuple *__restrict hv_ObjectModel3D);
+    HalconCpp::HTuple hv_StripThresholdLower, HalconCpp::HTuple hv_StripThresholdUpper, HalconCpp::HTuple *__restrict hv_ObjectModel3D);
 
 #endif
