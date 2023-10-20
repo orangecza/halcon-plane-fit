@@ -60,9 +60,11 @@ roi_filter_para::check_exception ()
 }
 
 HalconCpp::HTuple /* ObjectModel3D */
-roi_filter_merge (HalconCpp::HObject &img, std::vector<roi> roi_list,
+roi_filter_merge (const std::string path, std::vector<roi> roi_list,
                   roi_filter_para para)
 {
+  HalconCpp::HObject img;
+  HalconCpp::ReadImage(&img, path.c_str());
   if (roi_list.empty ())
     return HalconCpp::HObjectModel3D ();
   HalconCpp::HTuple merge;

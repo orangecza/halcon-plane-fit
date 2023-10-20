@@ -55,7 +55,7 @@ struct roi_filter_para
 };
 
 HalconCpp::HTuple /* ObjectModel3D */
-roi_filter_merge (HalconCpp::HObject &img, std::vector<roi> roi_list,
+roi_filter_merge (const std::string path, std::vector<roi> roi_list,
                   roi_filter_para para);
 
 #endif
