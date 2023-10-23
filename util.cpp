@@ -27,7 +27,7 @@ bool
 roi::check ()
 {
   return half_len.first > 0 && half_len.second > 0 && -M_PI / 2 < phi
-         && phi <= -M_PI / 2;
+         && phi <= M_PI / 2;
 }
 
 void
