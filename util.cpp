@@ -48,9 +48,9 @@ bool
 roi_filter_para::check ()
 {
   return 0 <= val_filter.first && val_filter.first < 0.5
-         && 0 <= val_filter.second && val_filter.second < 0.5
-         && 0 <= strip_threshold.first && strip_threshold.first < 0.5
-         && 0 <= strip_threshold.second && strip_threshold.second < 0.5;
+         && 0 <= val_filter.second && 0 <= strip_threshold.first
+         && strip_threshold.first < 0.5 && 0 <= strip_threshold.second
+         && strip_threshold.second < 0.5;
 }
 void
 roi_filter_para::check_exception ()
@@ -64,7 +64,7 @@ roi_filter_merge (const std::string path, std::vector<roi> roi_list,
                   roi_filter_para para)
 {
   HalconCpp::HObject img;
-  HalconCpp::ReadImage(&img, path.c_str());
+  HalconCpp::ReadImage (&img, path.c_str ());
   if (roi_list.empty ())
     return HalconCpp::HObjectModel3D ();
   HalconCpp::HTuple merge;
