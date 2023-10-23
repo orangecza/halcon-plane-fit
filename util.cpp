@@ -75,7 +75,7 @@ roi_filter_merge (const std::string path, std::vector<roi> roi_list,
                         i.half_len.second, i.phi, para.val_filter.first,
                         para.val_filter.second, para.strip_threshold.first,
                         para.strip_threshold.second, &model);
-      merge.TupleConcat (model);
+      merge = merge.TupleConcat (model);
     }
   HalconCpp::UnionObjectModel3d (merge, "points_surface", &model);
   return model;
